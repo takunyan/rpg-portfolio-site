@@ -34,7 +34,7 @@ html {
 }
 .screen {
   background-color: black;
-  height: 600px;
+  height: auto;
   width: 500px;
   margin: 0 auto;
 }

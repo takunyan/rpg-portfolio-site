@@ -1,7 +1,12 @@
 <template>
   <div class="stage">
-    <div v-for="i in 4" :key="i" :id="`vertical${i}`" class="map">
-      <div v-for="j in 4" :key="`${i}${j}`" :id="`side${i}${j}`" class="map">
+    <div v-for="i in 4" :key="i" :id="`vertical${i}`">
+      <div
+        v-for="j in 4"
+        :key="`${i}${j}`"
+        :id="`side${i}${j}`"
+        class="mapElement"
+      >
         <img
           :tabindex="0"
           v-if="i === yushaPosition.x && j === yushaPosition.y"
@@ -56,15 +61,19 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .yusha {
   outline: none;
 }
 .stage {
   display: flex;
+  align-items: center;
   justify-content: center;
+  /* Map Size */
+  height: 300px;
+  width: 100%;
 }
-.map {
+.mapElement {
   height: 32px;
   width: 32px;
   background-image: url("../assets/suna32px.png");

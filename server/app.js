@@ -5,6 +5,8 @@ const db = require("knex");
 
 const app = express();
 
+app.use(express.json());
+
 // Setup Logger
 app.use(
     morgan(

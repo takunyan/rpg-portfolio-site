@@ -29,13 +29,11 @@ html {
   font-family: "PixelMplus10-Regular";
   color: white;
 }
-#app {
-  margin: 60px;
-}
 .screen {
   background-color: black;
   height: auto;
   width: 500px;
   margin: 0 auto;
+  padding: 10px;
 }
 </style>

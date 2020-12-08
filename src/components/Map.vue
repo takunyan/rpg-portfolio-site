@@ -87,9 +87,57 @@ export default {
   },
   mounted: function () {
     this.$refs.yusha[0].focus();
+    setTimeout(
+      function () {
+        this.princessPosition.x += 1;
+        this.merchantPosition.x += 1;
+      }.bind(this),
+      5000
+    );
   },
   updated: function () {
     this.$refs.yusha[0].focus();
+    setTimeout(
+      function () {
+        const randomNum = Math.floor(Math.random() * 11);
+        if (randomNum % 2 === 0) {
+          if (
+            this.canMoveRandom(
+              this.princessPosition.x - 1,
+              this.princessPosition.y
+            )
+          ) {
+            this.princessPosition.x -= 1;
+          }
+          if (
+            this.canMoveRandom(
+              this.merchantPosition.x + 1,
+              this.merchantPosition.y
+            )
+          ) {
+            this.merchantPosition.x += 1;
+          }
+        } else {
+          if (
+            this.canMoveRandom(
+              this.princessPosition.x + 1,
+              this.princessPosition.y
+            )
+          ) {
+            this.princessPosition.x += 1;
+          }
+          if (
+            this.canMoveRandom(
+              this.merchantPosition.x - 1,
+              this.merchantPosition.y
+            )
+          ) {
+            this.merchantPosition.x -= 1;
+          }
+        }
+      }.bind(this),
+      5000
+    );
   },
   methods: {
     up() {
@@ -121,7 +169,6 @@ export default {
       }
     },
     canMove(willMovePositionX, willMovePositionY) {
-      console.log(_.isEqual(willBeHere, this.princessPosition));
       const willBeHere = { x: willMovePositionX, y: willMovePositionY };
       if (
         !_.isEqual(willBeHere, this.princessPosition) &&
@@ -135,6 +182,17 @@ export default {
         return true;
       }
       return false;
+    },
+    //FIXME
+    canMoveRandom(willMovePositionX, willMovePositionY) {
+      const willBeHere = { x: willMovePositionX, y: willMovePositionY };
+      return (
+        !_.isEqual(willBeHere, this.yushaPosition) &&
+        willMovePositionX < 9 &&
+        willMovePositionX > -1 &&
+        willMovePositionY < 9 &&
+        willMovePositionY > -1
+      );
     },
     callPrincess() {},
     callMerchant() {},

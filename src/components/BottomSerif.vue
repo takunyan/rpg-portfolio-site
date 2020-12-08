@@ -8,7 +8,7 @@ export default {
   data: function () {
     return {
       comment: {
-        intro: "Good Morning",
+        intro: "You can walk around, talk people and search treasure boxes",
       },
     };
   },

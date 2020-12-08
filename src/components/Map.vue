@@ -46,16 +46,35 @@ export default {
   },
   methods: {
     up() {
-      this.yushaPosition.y -= 1;
+      const willMovePosition = this.yushaPosition.y - 1;
+      if (this.canMove(willMovePosition)) {
+        this.yushaPosition.y -= 1;
+        this.$store.commit("setExperiencePoint", 1);
+      }
     },
     down() {
-      this.yushaPosition.y += 1;
+      const willMovePosition = this.yushaPosition.y + 1;
+      if (this.canMove(willMovePosition)) {
+        this.yushaPosition.y += 1;
+        this.$store.commit("setExperiencePoint", 1);
+      }
     },
     left() {
-      this.yushaPosition.x -= 1;
+      const willMovePosition = this.yushaPosition.x - 1;
+      if (this.canMove(willMovePosition)) {
+        this.yushaPosition.x -= 1;
+        this.$store.commit("setExperiencePoint", 1);
+      }
     },
     right() {
-      this.yushaPosition.x += 1;
+      const willMovePosition = this.yushaPosition.x + 1;
+      if (this.canMove(willMovePosition)) {
+        this.yushaPosition.x += 1;
+        this.$store.commit("setExperiencePoint", 1);
+      }
+    },
+    canMove(willMovePosition) {
+      return willMovePosition < 5 && willMovePosition > -1;
     },
   },
 };

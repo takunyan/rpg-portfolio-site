@@ -1,5 +1,12 @@
 <template>
-  <div class="topSerifBox">{{ comment.intro }}</div>
+  <div class="topSerifBox">
+    {{
+      `Name: Takuro 
+      Job: Engineer 
+      Level: ${this.$store.state.level} 
+      Experience Point: ${this.$store.state.experiencePoint}`
+    }}
+  </div>
 </template>
 
 <script>
@@ -8,7 +15,10 @@ export default {
   data: function () {
     return {
       comment: {
-        intro: "Good Morning",
+        intro: `Name: Takuro
+        Job: ENgineer
+        Level: ${this.$store.state.level}
+        Experience point: ${this.$store.state.experiencePoint}`,
       },
     };
   },

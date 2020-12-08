@@ -5,6 +5,9 @@ module.exports = {
         `postgres://${process.env.USER}@127.0.0.1:5432/portfolios`,
     searchPath: "public",
     migrations: {
-        directory: __dirname + "/migrations",
+        directory: __dirname + "/db/migrations",
+    },
+    seeds: {
+        directory: __dirname + "/db/seeds",
     },
 };

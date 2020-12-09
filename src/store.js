@@ -8,8 +8,16 @@ export default new Vuex.Store({
     state: {
         level: 1,
         experiencePoint: 0,
+        bottomSerif: "<div>You can walk around, talk people and search treasure boxes</div>",
+        screenState: "opening",
     },
     mutations: {
+        setBottomSerif(state, text) {
+            state.bottomSerif = text;
+        },
+        setScreenState(state, screenState) {
+            state.screenState = screenState;
+        },
         setExperiencePoint(state, point) {
             state.experiencePoint += point;
             if (state.experiencePoint === 10) {

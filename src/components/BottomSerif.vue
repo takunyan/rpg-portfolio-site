@@ -1,17 +1,10 @@
 <template>
-  <div class="bottomSerifBox">{{ comment.intro }}</div>
+  <div class="bottomSerifBox" v-html="this.$store.state.bottomSerif"></div>
 </template>
 
 <script>
 export default {
   name: "BottomSerif",
-  data: function () {
-    return {
-      comment: {
-        intro: "You can walk around, talk people and search treasure boxes",
-      },
-    };
-  },
 };
 </script>
 

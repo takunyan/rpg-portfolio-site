@@ -56,6 +56,7 @@
 
 <script>
 import _ from "lodash";
+import axios from "axios";
 export default {
   name: "Map",
   data: function () {
@@ -194,9 +195,19 @@ export default {
         willMovePositionY > -1
       );
     },
-    callPrincess() {},
-    callMerchant() {},
-    openTresureBox() {},
+    async callPrincess() {
+      const { data: portfolios } = await axios.get("/api/portfolios");
+      let serifHtml = '';
+      if (portfolios && portfolios.length > 0) {
+        portfolios.forEach((portfolio, index) => {
+          serifHtml += `<p>${"I want to intoroduce " + portfolio.name} </p>`;
+          serifHtml += `<p><a href='${portfolio.url}' target='_blank'>${"plz click:" + portfolio.url}</a></p>`;
+        });
+      }
+      this.$store.commit("setBottomSerif", serifHtml);
+    },
+    callMerchant() {this.$store.commit("setBottomSerif", `<p>${"Get out of here!"} </p>`);},
+    openTresureBox() {this.$store.commit("setBottomSerif", `<p>${"Thank you!"} </p>`);},
   },
 };
 </script>

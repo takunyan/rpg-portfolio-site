@@ -5,9 +5,7 @@ exports.seed = function (knex) {
     .then(function () {
       // Inserts seed entries
       return knex('portfolios').insert([
-        { name: 'rowValue1', description: 'rowValue1', url: 'rowValue1' },
-        { name: 'rowValue1', description: 'rowValue1', url: 'rowValue1' },
-        { name: 'rowValue1', description: 'rowValue1', url: 'rowValue1' },
+        { name: 'Truck Stop App', description: 'Truck Stop App', url: 'https://truck-stop-app-production.herokuapp.com/' },
       ]);
     });
 };

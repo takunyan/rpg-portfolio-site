@@ -7,8 +7,11 @@
           alt="title_logo"
           class="fadedown"
         />
-      <p class="fadedown">ポートフォリオを探す旅に出かけますか？</p>
-      <p class="fadedown" v-on:click='finishTitle'>はい</p>
+      <div class="titleSerif">
+        <p class="fadedown">ポートフォリオを探す旅に出かけますか？</p>
+        <p class="fadedown" v-on:click='finishTitle'>はい</p>
+        <p class="fadedown">いいえ</p>
+      </div>
       </div>
       <div v-else-if="this.$store.state.screenState === 'playing'">
       <TopSerif />
@@ -73,5 +76,8 @@ to {
     opacity: 1;
     transform: translateY(20px);
 }
+}
+.titleSerif {
+  text-align: center;
 }
 </style>
